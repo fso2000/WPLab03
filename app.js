@@ -1,11 +1,20 @@
 const express = require("express");
 //creating app
 const app = express();
+
 //handling static HTML and EJS templates
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.get("/", (req, res) => {
   res.render("index"); //no need for ejs extension
+});
+//route for contacts
+app.get("/contacts", (req, res) => {
+  res.render("contacts");
+});
+//route for catalogue
+app.get("/api/catalog", (req, res) => {
+  res.render("catalogue");
 });
 
 //make the app listen on port
